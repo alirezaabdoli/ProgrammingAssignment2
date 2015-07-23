@@ -1,9 +1,9 @@
 ## This file contains two function aimed at creating a matrix
-## and consequently getting the inverse of the matrix in case
-## already cached otherwise the inverse of matrix is calculated.
+## and subsequently getting the inverse of the matrix in case
+## already cached otherwise inverse of the matrix is calculated.
 
 
-## The first function 'makeCacheMatrix' creates a matrix and
+## This function 'makeCacheMatrix' creates a matrix and
 ## provides a set of functions for manipulating the matrix
 
 makeCacheMatrix <- function(x = matrix()) 
@@ -36,20 +36,22 @@ makeCacheMatrix <- function(x = matrix())
 }
 
 
-## The second function 'cacheSolve' returns the inverse of the matrix
+## This function 'cacheSolve' returns the inverse of the matrix
 ## if already cached; otherwise the function calculates inverse of
 ## the matrix.
 
 cacheSolve <- function(x, ...) 
 {
-      ## Return a matrix that is the inverse of 'x'
+      ## Return a matrix that is the inverse of 'x', if already
+      ## cached
       inv = x$get_inverse()
       if (!is.null(inv))
       {
             message("Getting the cached matrix")
             return(inv)
       }
-      ## Otherwise inverse of the matrix is calculated and cached
+      ## Otherwise inverse of the matrix is calculated and
+      ## cached for subsequent use.
             matrix = x$get_matrix()
             inv = solve(matrix, ...)
             x$set_inverse(inv)
